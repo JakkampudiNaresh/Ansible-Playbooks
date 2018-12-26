@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: Install packages of httpd
+      package:
+        name: httpd
+        state: present
+      when: ansible_facts['os_family'] == "Redhat"
+
+
+    - name: install package of apache2
+      package:
+        name: apache2
+        state: present
+      when: ansible_facts['os_family'] == "ubuntu"
+
+...

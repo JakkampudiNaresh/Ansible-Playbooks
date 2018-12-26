@@ -1,0 +1,11 @@
+
+---
+- hosts: all
+  become: yes
+  
+  tasks:
+    - name: package wget
+      package:
+        name: wget
+        state: present
+... 

@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    package:
+      - gcc
+      - git
+  tasks:
+    - name: install the gcc and git
+      package: 
+        name: "{{ package }}"
+        state: present
+...
+          

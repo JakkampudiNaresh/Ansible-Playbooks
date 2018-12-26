@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+    
+    - name: install httpd
+      package:
+        name: httpd
+        state: latest
+    - name: start service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      notify: 
+        - restart apache
+    - name: using template
+      template:
+        src: /root/ansible/playbooks/sample.j12
+        dest: /root     
+      notify:
+        - restart apache
+
+  handlers:
+    - name: restart apache
+      service:
+        name: httpd
+        state: restarted

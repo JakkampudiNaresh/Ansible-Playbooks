@@ -1,0 +1,8 @@
+--- 
+- hosts: all
+  become: yes
+  tasks: 
+    - name: debug msg
+      debug:
+        msg: "welcome to ansible"
+...

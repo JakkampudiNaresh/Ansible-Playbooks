@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  
+  tasks:
+    - name: Un Install Packages
+      package:
+        name: "{{ item }}"
+        state: absent
+       
+      with_items:
+        - httpd
+        - gcc
+        - wget
+        - git
+
+...

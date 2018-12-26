@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Add user
+      user:
+        name: naresh
+        password: naresh
+        comment: Test user
+        shell: /bin/bash
+        group: root
+        createhome: yes
+        home: /home/naresh
+
+...

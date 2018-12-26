@@ -1,0 +1,11 @@
+---
+# tasks file for template.role
+    
+- name: using template to copy my files
+  template:
+    src: sample.j2
+    dest: /root
+
+  notify: 
+    - create_directory
+...

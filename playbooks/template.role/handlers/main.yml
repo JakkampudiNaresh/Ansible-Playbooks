@@ -1,0 +1,8 @@
+---
+# handlers file for template.role
+- name: create_directory
+  file:
+    path: /root/naresh
+    mode: 0755
+    state: directory
+...

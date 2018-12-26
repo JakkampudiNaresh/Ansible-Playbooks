@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: condition statements
+      shell: "false"
+      register: OUT
+
+    - name: Rajesh hai
+      shell: echo hello Failed
+      when: OUT|failed

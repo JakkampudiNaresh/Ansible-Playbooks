@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    userone: dharma
+    usertwo: ramu
+    groupname: root
+
+  tasks:
+    - name: add user and group using loops to {{ hostname }}
+      user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.groups }}"
+      with_items:
+        - { name: "{{ userone }}", groups: "{{ groupname }}" }
+        - { name: "{{ usertwo }}", groups: "{{ groupname }}" }
+
+...
+  

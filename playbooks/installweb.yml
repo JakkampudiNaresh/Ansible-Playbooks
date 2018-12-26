@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  
+  tasks:
+    - name: install web server
+      package:
+        name: httpd
+        state: installed
+    
+    - name: start web server
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+...   
